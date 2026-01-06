@@ -1,0 +1,814 @@
+/* Reset básico: remove margens padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; /* Altere para sua fonte preferida */
+}
+
+header {
+    display: flex;               /* Ativa o Flexbox */
+    justify-content: space-between; /* Espalha: Logo na esquerda, Menu no meio, Botão na direita */
+    align-items: center;         /* Centraliza tudo verticalmente */
+    padding: 15px 5%;            /* Espaçamento interno */
+    background-color: #ffffff;   /* Cor de fundo do cabeçalho */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra leve abaixo */
+}
+
+/* Tamanho do Logo */
+.logo img {
+    height: 60px; /* Define a altura fixa, largura automática */
+    width: auto;
+}
+
+/* Menu de Navegação */
+.navmenu ul {
+    display: flex;       /* Torna a lista horizontal */
+    list-style: none;    /* Remove as bolinhas da lista */
+    gap: 30px;           /* Espaço entre os itens do menu */
+}
+
+.navmenu a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #333333;        /* Cor do texto */
+    font-weight: 500;
+}
+
+.navmenu a:hover {
+    color: #A78BFA; /* Cor ao passar o mouse (tom dourado de estética) */
+}
+
+/* Estilo do Botão */
+.button a {
+    background-color: #7A28CB; /* Verde WhatsApp */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 15px; /* Bordas arredondadas */
+    font-weight: bold;
+    transition: 0.3s; /* Suaviza a mudança de cor */
+}
+
+.button a:hover {
+    background-color: #ff5bde; /* Verde mais escuro ao passar o mouse */
+}
+/* Configuração da Seção Principal */
+.hero-section {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between;
+    padding: 40px 8%; /* Ajustei o padding lateral para afastar mais */
+    background: linear-gradient(135deg, #f9f7ff 0%, #f3f0fc 100%); /* Degradê suave */
+    min-height: 85vh; /* Garante uma boa altura na tela */
+    overflow: hidden; /* Evita barras de rolagem indesejadas */
+}
+
+/* --- Lado Esquerdo (Texto) --- */
+.hero-content {
+    max-width: 45%; /* Limita a largura do texto */
+    z-index: 2; /* Garante que o texto fique sobre qualquer elemento de fundo */
+}
+
+.hero-content h1 {
+    font-size: 3rem; /* Tamanho grande para o título */
+    line-height: 1.2;
+    color: #2c2c2c;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.hero-content h1 span {
+    color: #8c52ff; /* Roxo principal */
+}
+
+.hero-content p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 90%;
+}
+
+/* Botões */
+.cta-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #8c52ff;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px; /* Bordas bem redondas */
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(140, 82, 255, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #444;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #7340d3;
+    transform: translateY(-2px); /* Efeito de levantar */
+}
+.btn-secondary:hover {
+    border-color: #8c52ff;
+    color: #8c52ff;
+    background-color: #f9f7ff;
+}
+
+/* Prova Social (Estrelas e Clientes) */
+.social-proof {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatars .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-left: -15px; /* Sobreposição */
+    background-size: cover;
+    background-position: center;
+}
+/* Cores placeholder para os avatares */
+.avatars .circle:nth-child(1) { background-color: #a29bfe; z-index: 3; }
+.avatars .circle:nth-child(2) { background-color: #fdcb6e; z-index: 2; }
+.avatars .circle:nth-child(3) { background-color: #81ecec; z-index: 1; }
+
+.avatars .circle:first-child {
+    margin-left: 0;
+}
+
+.rating-text strong {
+    color: #333;
+    font-size: 1rem;
+}
+
+.stars {
+    color: #FFD700; /* Cor dourada para estrelas */
+    font-size: 1.3rem;
+    padding-left: 25px;
+    border-left: 1px solid #e0e0e0;
+}
+
+.stars small {
+    display: block;
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* --- Lado Direito (Imagem) --- */
+.hero-image-container {
+    position: relative; /* Necessário para posicionar o card flutuante */
+    width: 45%; /* Define a largura do contêiner da imagem */
+    max-width: 550px; /* Tamanho máximo para não ficar gigante em telas grandes */
+    display: flex;
+    justify-content: flex-end; /* Alinha a imagem à direita dentro do seu container */
+}
+
+/* Wrapper que cria o efeito de "box" com bordas arredondadas */
+.hero-image-wrapper {
+    position: relative;
+    width: 90%; /* A imagem ocupa 90% do container para dar espaço ao card */
+    border-radius: 40px; /* Bordas arredondadas grandes */
+    overflow: hidden; /* Corta a imagem que passar das bordas arredondadas */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Sombra suave para destacar */
+    /* Opcional: Adicionar um fundo se a imagem for transparente */
+    background-color: #fff;
+}
+
+.main-photo {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove espaço extra abaixo da imagem */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+/* Card Flutuante (Horário) */
+.floating-card {
+    position: absolute;
+    bottom: 40px; /* Distância do fundo */
+    left: 0; /* Alinhado à esquerda do container principal */
+    background-color: #ffffff;
+    padding: 18px 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    z-index: 5; /* Fica acima da imagem */
+}
+
+.floating-card strong {
+    display: block;
+    font-size: 1.3rem;
+    color: #2c2c2c;
+    margin-bottom: 5px;
+}
+
+.floating-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* --- Responsivo para Celular e Tablet --- */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column; /* Um item embaixo do outro */
+        padding: 40px 6%;
+        text-align: center;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .cta-group {
+        justify-content: center;
+        flex-wrap: wrap; /* Permite que os botões quebrem linha se necessário */
+    }
+
+    .social-proof {
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .stars {
+        border-left: none;
+        padding-left: 0;
+    }
+    
+    .hero-image-container {
+        width: 100%;
+        max-width: 450px; /* Limita o tamanho da imagem no mobile */
+        margin: 0 auto; /* Centraliza */
+        justify-content: center;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+    }
+    
+    .floating-card {
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza o card horizontalmente */
+        width: max-content; /* Largura baseada no conteúdo */
+        padding: 15px 20px;
+    }
+}
+/* --- Seção de Serviços --- */
+.services-section {
+    padding: 80px 0; /* Removi o padding lateral para o carrossel ir até a borda se quiser, ou mantenha 5% */
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Títulos da Seção */
+.section-header {
+    margin-bottom: 50px;
+    padding: 0 5%; /* Garante alinhamento do texto */
+}
+
+.section-header .subtitle {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.section-header h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 2rem;
+    color: #333;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+/* Grid de Cards (Modo Carrossel) */
+.services-grid {
+    display: flex;
+    gap: 20px;
+    
+    /* Configuração do Carrossel */
+    flex-wrap: nowrap;        /* Impede quebra de linha */
+    overflow-x: auto;         /* Habilita rolagem lateral */
+    justify-content: flex-start; /* Alinha itens à esquerda */
+    
+    padding: 20px 5%;         /* Espaçamento interno para não cortar sombras */
+    scroll-behavior: smooth;  /* Rolagem suave */
+    -webkit-overflow-scrolling: touch; /* Rolagem nativa no iOS */
+}
+
+/* Estilização da Barra de Rolagem */
+.services-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.services-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.services-grid::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+.services-grid::-webkit-scrollbar-thumb:hover {
+    background: #bfa15f; /* Cor destaque ao passar o mouse na barra */
+}
+
+/* Estilo do Card Individual */
+.service-card {
+    position: relative;
+    /* Tamanho Fixo para Carrossel */
+    min-width: 260px;
+    width: 260px;
+    height: 380px;
+    
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagem de fundo do card */
+.service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease; /* Efeito extra de zoom na imagem */
+}
+
+.service-card:hover img {
+    transform: scale(1.05); /* Zoom leve na imagem ao passar o mouse */
+}
+
+/* Overlay Escuro (Degradê) */
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 60%; /* Aumentei levemente para garantir leitura */
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.card-content a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    border-bottom: 1px solid transparent;
+}
+
+.card-content a:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+/* --- Seção Por Que Escolher --- */
+.why-choose-section {
+    background-color: #f7f5fc; /* Tom lilás bem claro do fundo */
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ajuste específico para o subtítulo desta seção */
+.why-choose-section .section-header {
+    text-align: center;
+    max-width: 800px;
+}
+
+.subtitle-text {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Grid dos Benefícios */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Cria colunas que se ajustam */
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* Card Individual */
+.benefit-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px; /* Bordas bem arredondadas conforme a imagem */
+    display: flex;
+    align-items: flex-start; /* Alinha ícone e texto no topo */
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* Sombra muito suave */
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(140, 82, 255, 0.1);
+}
+
+/* Ícones (Caixa Roxa) */
+.icon-box {
+    background-color: #8c52ff; /* Roxo da marca */
+    color: white;
+    min-width: 60px;
+    height: 60px;
+    border-radius: 15px; /* Quadrado arredondado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem; /* Tamanho do emoji/ícone */
+    flex-shrink: 0; /* Impede que o ícone amasse */
+}
+
+/* Texto do Card */
+.benefit-text h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.benefit-text p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr; /* Uma coluna no celular */
+    }
+    
+    .benefit-card {
+        padding: 20px;
+        min-width: auto; /* Remove restrições de largura no mobile */
+    }
+}
+/* --- Seção de Depoimentos --- */
+.testimonials-section {
+    padding: 80px 5%;
+    background-color: #fff; /* Fundo branco para contraste com a sessão anterior */
+    text-align: center;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Quebra linha em telas menores */
+    margin-top: 40px;
+}
+
+/* Card de Depoimento */
+.testimonial-card {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px; /* Largura fixa para manter padrão */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left; /* Texto alinhado à esquerda facilita a leitura */
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Estrelas */
+.testimonial-card .stars {
+    color: #FFD700; /* Dourado */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+/* Texto do Review */
+.review-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-style: italic; /* Itálico para dar tom de fala */
+}
+
+/* Info do Cliente */
+.client-info {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.client-info strong {
+    display: block;
+    color: #333;
+    font-size: 1rem;
+}
+
+.client-info span {
+    font-size: 0.85rem;
+    color: #8c52ff; /* Roxo da marca para o serviço realizado */
+    font-weight: 500;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .testimonials-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonial-card {
+        width: 100%; /* Ocupa largura total no mobile */
+    }
+}
+/* --- Seção CTA Final (Roxa) --- */
+.cta-final-section {
+    background: linear-gradient(135deg, #a36eff 0%, #8c52ff 100%); /* Degradê Roxo Vibrante */
+    padding: 80px 5%;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Badge (Pílula do topo) */
+.cta-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo transparente */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    backdrop-filter: blur(5px); /* Efeito de vidro */
+}
+
+/* Título e Texto */
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+/* Botão Branco Grande */
+.btn-cta-white {
+    background-color: #ffffff;
+    color: #8c52ff; /* Texto roxo */
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    display: inline-block;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-cta-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    background-color: #f8f8f8;
+}
+
+/* Cards de Informação (Vidro) */
+.info-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.glass-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Bem transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+    min-width: 250px;
+}
+
+.glass-card .icon {
+    font-size: 1.5rem;
+}
+
+.glass-card .text strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.glass-card .text small {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Nota de rodapé pequena */
+.footer-note {
+    font-size: 0.8rem !important; /* Força ser menor que o parágrafo padrão */
+    opacity: 0.7;
+    margin-bottom: 0 !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .cta-content h2 { font-size: 2rem; }
+    .info-cards-container { flex-direction: column; align-items: center; }
+    .glass-card { width: 100%; max-width: 350px; justify-content: center; }
+}
+/* --- Rodapé (Footer) --- */
+footer {
+    background-color: #0b0d17; /* Fundo azul noturno escuro */
+    color: #a0a0a0; /* Texto cinza claro para leitura confortável */
+    padding: 70px 5% 30px;
+    font-size: 0.95rem;
+}
+
+/* Grid das Colunas */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas automáticas */
+    gap: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #1f212e; /* Linha separadora sutil */
+}
+
+/* Títulos das Colunas */
+.footer-column h3 {
+    color: #ffffff; /* Títulos em branco */
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Logo em Texto (caso não use imagem) */
+.footer-logo {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.8rem !important;
+    margin-bottom: 20px;
+}
+
+/* Listas e Links */
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px; /* Espaço entre ícone e texto */
+}
+
+.footer-column strong {
+    color: #fff;
+    font-weight: normal;
+}
+
+/* Link do Mapa */
+.map-link {
+    display: inline-block;
+    color: #8c52ff; /* Roxo da marca */
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.map-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Barra Inferior --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.legal-links a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.legal-links a:hover {
+    color: #fff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .legal-links a {
+        margin: 0 10px;
+    }
+}
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000; /* Fica acima de tudo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+html {
+    scroll-behavior: smooth;
+}
